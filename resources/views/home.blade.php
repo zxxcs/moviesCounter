@@ -1,4 +1,4 @@
-@include('test')
+
 @extends('footer')
 
 <!DOCTYPE html>
@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>@yield('title','Movie Counter') </title>
     <style>
 
@@ -21,16 +22,40 @@
         }
 
         body {
-   min-height: 800px;
-   margin-bottom: 90px;
-   clear: both;
-}
-    </style>
+            min-height: 800px;
+            margin-bottom: 90px;
+            clear: both;
+        }
+         .column {
+             float: left;
+             width: 25%;
+            padding: 0 10px;
+         }
+
+
+        .row {margin: 0 -5px;}
+
+
+        .row:after {
+            content: "";
+             display: table;
+            clear: both;
+        }
+
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+            display: block;
+            margin-bottom: 20px;
+        }
+    }
+
+            </style>
 </head>
 <body>
     <ul class="nav nav-pills justify-content-center bg-primary">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Movie Counter</a>
+          <a class="nav-link active" aria-current="page" href="/">Movie Counter</a>
         </li>
       </ul>
       <ul class="nav nav-pills justify-content-center  ">
@@ -46,7 +71,7 @@
 
 
     <div>
-        <table style="table table-hover table-dark">
+        <table class="table table-hover table-dark">
             <thead>
                 <tr>
                 <th scope="col">ID</th>
@@ -84,19 +109,15 @@
             </tbody>
         </table>
 
-        @foreach ($movies as $movie)
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{Storage::url($movie->image)}}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        @endforeach
+
+
+
+
+
 
     </div>
 
 </center>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
